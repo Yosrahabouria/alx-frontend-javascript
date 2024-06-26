@@ -1,12 +1,12 @@
 function getResponseFromAPI(){
 const succeed = true;
 return NewPromise((resolve, reject) => {
-    if (succeed) {
+    if (succeed) 
+        {
         resolve();
     }
 else {
     reject();
 }
-    
-});
+    });
 }
