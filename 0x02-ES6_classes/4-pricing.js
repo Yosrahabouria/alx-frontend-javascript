@@ -1,4 +1,3 @@
-// 4-pricing.js
 import Currency from './3-classroom.js';
 
 export default class Pricing {
