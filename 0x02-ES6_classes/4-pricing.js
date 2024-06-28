@@ -1,9 +1,21 @@
-import Currency from './3-classroom.js';
+import Currency from './3-currency';
 
 export default class Pricing {
   constructor(amount, currency) {
-    this._currency = currency;
     this._amount = amount;
+    this._currency = currency;
+  }
+
+  // Getter and Setter for amount
+  get amount() {
+    return this._amount;
+  }
+
+  set amount(value) {
+    if (typeof value !== 'number') {
+      throw new Error('TypeError: Amount must be a number');
+    }
+    this._amount = value;
   }
 
   // Getter and setter for currency
@@ -15,20 +27,13 @@ export default class Pricing {
     this._currency = value;
   }
 
-  get amount() {
-    return this._amount;
-  }
-
-  set amount(value) {
-    this._amount = value;
-  }
-
+  // Method
   displayFullPrice() {
-    return `${this._amount} ${this._currency.displayFullCurrency()}`;
+    return `${this._amount} ${new Currency(this._currency.code, this._currency.name).displayFullCurrency()}`;
   }
 
+  // Static Method
   static convertPrice(amount, conversionRate) {
-    return (amount * conversionRate);
+    return amount * conversionRate;
   }
 }
-
