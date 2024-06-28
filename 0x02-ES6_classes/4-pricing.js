@@ -1,7 +1,8 @@
+// 4-pricing.js
 import Currency from './3-classroom.js';
+
 export default class Pricing {
   constructor(amount, currency) {
-   
     this._currency = currency;
     this._amount = amount;
   }
@@ -22,10 +23,13 @@ export default class Pricing {
   set amount(value) {
     this._amount = value;
   }
-displayFullPrice() {
-    return `${this._amount} ${new Currency(this._currency.code, this._currency.name).displayFullCurrency()}`;
+
+  displayFullPrice() {
+    return `${this._amount} ${this._currency.displayFullCurrency()}`;
   }
-static convertPrice(amount, conversionRate) {
-  return (amount * conversionRate);
+
+  static convertPrice(amount, conversionRate) {
+    return (amount * conversionRate);
+  }
 }
-}
+
